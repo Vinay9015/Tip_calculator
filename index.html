@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tip Calculator</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <div class="Tip-calculator"> 
@@ -39,15 +40,22 @@
 
             <div class="group-form">
                 <label for="Total-Bill">Total Bill</label>
-                <input type="text" class="Total-Bill" name="Total-Bill"  class="result">
+                <input type="text" id="Total-Bill" name="Total-Bill"  class="result">
             </div>
         </form>
 
         <form class="currency-rate">
             <h3> Currency Conversion Rates</h3>
-            <p> $1 USD= ¥149.34 JPY</p>
-            <p> $1 USD= ₹84.07 INR</p>
+            <p> 
+                <span>USD → JPY:</span>
+                <span>$1 = ¥149.34</span>
+            </p>
+            <p> 
+                <span>USD → INR:</span>
+                <span>$1 = ₹84.07 </span>
+            </p>
         </form>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>

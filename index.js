@@ -5,6 +5,10 @@ const tipSlider = document.getElementById("Tip-slider");
 const tipPercentage = document.getElementById("Tip-percentage");
 const tipAmount = document.getElementById("Tip-Amount");
 const totalBill = document.getElementById("Total-Bill");
+// disabling the feilds
+tipPercentage.disabled = true;
+tipAmount.disabled = true;
+totalBill.disabled = true;
 
 const rates = {
     USD: 1,
@@ -17,7 +21,9 @@ const symbols = {
     JPY: "¥",
     INR: "₹"
 };
-
+/*function isValidInput(value) {
+    return /^\d*\.?\d*$/.test(value) && value > 0;
+}*/
 function formatAmount(amount, currency) {
     const rate = rates[currency];
     const symbol = symbols[currency];
@@ -26,11 +32,9 @@ function formatAmount(amount, currency) {
 }
 // tip caluclating function
 function calculateTip() {
-    const billValue = parseFloat(bill.value);
-    const tipValue = parseInt(tipSlider.value);
-    const selectedCurrency = currency.value;
+    const num = bill.value;
 // detecting error values
-    if (isNaN(billValue) || billValue < 0) {
+    if (isNaN(num) || num < 0) {
         billError.classList.add('show');
         tipAmount.value = '';
         totalBill.value = '';
@@ -38,6 +42,9 @@ function calculateTip() {
     }
 
     billError.classList.remove('show');
+    const billValue = parseFloat(bill.value);
+    const tipValue = parseInt(tipSlider.value);
+    const selectedCurrency = currency.value;
     const tipAmountUSD = billValue * (tipValue / 100);
     const totalBillUSD = billValue + tipAmountUSD;
 

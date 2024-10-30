@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="Tip-calculator"> 
+        <p> ITMD 4/541-lab3-Vinay Kambhampati</p>
+        <h1>Tip Calculator</h1>
+        <form id="tip-form">
+            <div class="group-form">
+                <label for="Bill"> Bill Total ($)</label>
+                <input type="text" id="Bill" name="Bill" required>
+                <div id="billError" class="error-message">Please enter valid positive number</div>
+            </div>
+
+            <div class="group-form">
+                <label for="currency">Select currency</label>
+                <select id="currency" name="currency">
+                    <option value="USD">USD ($)</option>
+                    <option value="JPY">Japanese Yen (¥)</option>
+                    <option value="INR">Indian Rupee (₹)</option>
+                </select>
+            </div>
+
+            <div class="group-form">
+                <label for="Tip-slider">Tip Percentage</label>
+                <input type="range" id="Tip-slider" name="Tip-slider" min="0" max="100" value="10">
+                <input type="text" id="Tip-percentage" value="10%"  class="result">
+
+            </div>
+
+            <div class="group-form">
+                <label for="Tip-Amount">Tip Amount</label>
+                <input type="text" id="Tip-Amount" name="Tip-Amount"  class="result">
+            </div>
+
+            <div class="group-form">
+                <label for="Total-Bill">Total Bill</label>
+                <input type="text" class="Total-Bill" name="Total-Bill"  class="result">
+            </div>
+        </form>
+
+        <form class="currency-rate">
+            <h3> Currency Conversion Rates</h3>
+            <p> $1 USD= ¥149.34 JPY</p>
+            <p> $1 USD= ₹84.07 INR</p>
+        </form>
+    </div>
+</body>
+</html>

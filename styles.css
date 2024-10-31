@@ -1,3 +1,8 @@
+.Tip-calculator{
+    padding:0px;
+    display:flex;
+    flex-align:center;
+}
 .error-message {
     color: red;
     font-size: 0.875rem;

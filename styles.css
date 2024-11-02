@@ -1,11 +1,264 @@
-
-.error-message {
-    color: red;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-    display: none;
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --christmas-red: #D42426;
+    --christmas-green: #165B33;
+    --snow-white: #F8F9FA;
+    --gold: #FFD700;
+    --holly-green: #146B3A;
+    --candy-red: #EA4630;
 }
 
-.error-message.show {
-    display: block;
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: Arial, sans-serif;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--christmas-green) 0px,
+        var(--christmas-green) 20px,
+        var(--christmas-red) 20px,
+        var(--christmas-red) 40px
+    );
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
 }
+.Tip-calculator {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    display: grid;
+    gap: 1.5rem;
+    position: relative;
+    border: 3px solid var(--gold);
+    z-index: 1;
+}
+
+.Tip-calculator::before,
+        .Tip-calculator::after {
+            content: '🎄';
+            position: absolute;
+            top: -20px;
+            font-size: 2rem;
+            pointer-events: none;
+        }
+
+        .Tip-calculator::before {
+            left: 20px;
+        }
+
+        .Tip-calculator::after {
+            right: 20px;
+        }
+
+        .Tip-calculator > p {
+            color: var(--christmas-red);
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: var(--christmas-green);
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        h1::before, h1::after {
+            content: '🎅';
+            font-size: 1.5rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h1::before {
+            left: 20px;
+        }
+
+        h1::after {
+            right: 20px;
+        }
+
+        .group-form {
+            display: grid;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            font-weight: bold;
+            color: var(--holly-green);
+        }
+        input[type="text"],
+        select {
+            padding: 0.75rem;
+            border: 2px solid var(--christmas-green);
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            background-color: var(--snow-white);
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--christmas-red);
+            box-shadow: 0 0 0 3px rgba(212, 36, 38, 0.2);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            background: var(--christmas-green);
+            border-radius: 4px;
+            -webkit-appearance: none;
+            margin: 1rem 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--christmas-red);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .result {
+            background-color: var(--snow-white);
+            border: 2px dashed var(--christmas-green);
+            color: var(--holly-green);
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .error-message {
+            color: var(--candy-red);
+            font-size: 0.875rem;
+            padding: 0.5rem;
+            background-color: rgba(234, 70, 48, 0.1);
+            border-radius: 4px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        .currency-rate {
+            background-color: rgba(22, 91, 51, 0.1);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 2px solid var(--gold);
+            margin-top: 1rem;
+        }
+
+        .currency-rate h3 {
+            color: var(--christmas-red);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .currency-rate p {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+            color: var(--holly-green);
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .currency-rate p:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.02);
+        }
+
+        /* Snowfall Animation */
+        @keyframes snowfall {
+            0% { transform: translateY(-10vh) translateX(-10px) rotate(0deg); }
+            100% { transform: translateY(110vh) translateX(10px) rotate(360deg); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .snowflakes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .snowflake {
+            position: fixed;
+            color: white;
+            font-size: 1.5em;
+            animation: snowfall 5s linear infinite;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .Tip-calculator {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h1::before, h1::after {
+                font-size: 1.2rem;
+            }
+
+            .group-form {
+                gap: 0.3rem;
+            }
+
+            .currency-rate {
+                padding: 1rem;
+            }
+
+            input[type="text"],
+            select {
+                padding: 0.6rem;
+            }
+
+            .Tip-calculator::before,
+            .Tip-calculator::after {
+                font-size: 1.5rem;
+            }
+        }
+
+

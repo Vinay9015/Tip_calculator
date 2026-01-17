@@ -1,1 +1,1 @@
-A Simple Tip Calculator
+# A Simple Tip Calculator
